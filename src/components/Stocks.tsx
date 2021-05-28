@@ -1,7 +1,6 @@
 import React, {useEffect} from "react";
 import { useAppSelector, useAppDispatch } from '../redux/store';
 import StockItem from "./StockItem";
-import {getStockSummary} from "../redux/stocksActions";
 
 const portfolio = ['tsla'];
 
@@ -11,7 +10,7 @@ const Stocks = () => {
   
   useEffect( () => {
     portfolio.forEach((symbol: string) => {
-      dispatch(getStockSummary(symbol));
+      dispatch({type: 'getStockSummary', payload: symbol});
     });
   }, []);
   
