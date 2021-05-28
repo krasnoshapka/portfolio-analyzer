@@ -1,11 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-
-export interface Stock {
-  symbol: string,
-  longName: string,
-  currencySymbol: string,
-  price: number
-}
+import Stock from "../models/stocks";
 
 interface StocksState {
   stocks: Stock[]

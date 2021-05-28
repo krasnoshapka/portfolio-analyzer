@@ -1,5 +1,5 @@
 import React from "react";
-import {Stock} from '../redux/stocksSlice'
+import Stock from "../models/stocks";
 
 interface StockProps {
   stock: Stock
