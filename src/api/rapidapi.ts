@@ -1,11 +1,15 @@
-import {Stock} from "../redux/stocksSlice";
+import Stock from "../models/stocks";
 
-async function getStockSummary(symbol: string) {
-  const response = await fetch(`https://apidojo-yahoo-finance-v1.p.rapidapi.com/stock/v2/get-summary?symbol=${symbol}&region=GB`, {
+const API_URL = "https://apidojo-yahoo-finance-v1.p.rapidapi.com";
+const API_KEY = "3cd73c018bmsh0de2957b5737971p15a074jsn690f2d899f47";
+const API_HOST = "apidojo-yahoo-finance-v1.p.rapidapi.com";
+
+async function getStockSummary(symbol: string): Promise<Stock> {
+  const response = await fetch(`${API_URL}/stock/v2/get-summary?symbol=${symbol}&region=GB`, {
     "method": "GET",
     "headers": {
-      "x-rapidapi-key": "3cd73c018bmsh0de2957b5737971p15a074jsn690f2d899f47",
-      "x-rapidapi-host": "apidojo-yahoo-finance-v1.p.rapidapi.com"
+      "x-rapidapi-key": API_KEY,
+      "x-rapidapi-host": API_HOST
     }
   });
   const data = await response.json();
@@ -14,7 +18,7 @@ async function getStockSummary(symbol: string) {
     longName: data.price.longName,
     currencySymbol: data.price.currencySymbol,
     price: data.price.regularMarketPrice.raw
-  } as Stock;
+  };
 }
 
 export default {getStockSummary};
