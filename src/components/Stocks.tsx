@@ -2,10 +2,8 @@ import React, {useEffect} from "react";
 import { useAppSelector, useAppDispatch } from '../redux/store';
 import StockItem from "./StockItem";
 
-const portfolio = ['tsla'];
-
 const Stocks = () => {
-  const stocks = useAppSelector((state) => state.stocks.stocks);
+  const {stocks, portfolio} = useAppSelector((state) => state.stocks);
   const dispatch = useAppDispatch();
   
   useEffect( () => {
