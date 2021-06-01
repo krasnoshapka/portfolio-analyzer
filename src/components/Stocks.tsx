@@ -8,7 +8,7 @@ const Stocks = () => {
   
   useEffect( () => {
     portfolio.forEach((symbol: string) => {
-      dispatch({type: 'getStockSummary', payload: symbol});
+      dispatch({type: 'getStockData', payload: symbol});
     });
   }, []);
   

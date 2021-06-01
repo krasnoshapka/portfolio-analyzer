@@ -3,4 +3,5 @@ export default interface Stock {
   longName: string;
   currencySymbol: string;
   price: number;
+  pe: number;
 }

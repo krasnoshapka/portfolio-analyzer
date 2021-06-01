@@ -11,7 +11,8 @@ const StockItem = ({stock}: StockProps) => {
     <div>
       {stock.longName}<br />
       {stock.symbol}<br />
-      {stock.currencySymbol}{stock.price}<br />
+      Price: {stock.currencySymbol}{stock.price}<br />
+      PE: {stock.pe}<br />
     </div>
   );
 };

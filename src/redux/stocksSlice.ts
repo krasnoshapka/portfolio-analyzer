@@ -15,7 +15,7 @@ export const stocksSlice = createSlice({
   name: 'stocks',
   initialState,
   reducers: {
-    stocksSummary(state, { payload }: PayloadAction<Stock>) {
+    stocksData(state, { payload }: PayloadAction<Stock>) {
       const index = state.stocks.findIndex((item) => item.symbol === payload.symbol);
       if (index !== -1) {
         state.stocks[index] = payload;
@@ -27,6 +27,6 @@ export const stocksSlice = createSlice({
 })
 
 // Action creators are generated for each case reducer function
-export const { stocksSummary } = stocksSlice.actions;
+export const { stocksData } = stocksSlice.actions;
 
 export default stocksSlice.reducer;
