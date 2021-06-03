@@ -1,18 +1,20 @@
 import React from "react";
-import Stock from "../models/stocks";
+import Stock, {PortfolioItem} from "../models/stocks";
 
 interface StockProps {
-  stock: Stock
+  stock: Stock;
+  portfolio: PortfolioItem;
 }
 
-const StockItem = ({stock}: StockProps) => {
+const StockItem = ({stock, portfolio}: StockProps) => {
 
   return (
-    <div>
-      {stock.longName}<br />
-      {stock.symbol}<br />
-      Price: {stock.currencySymbol}{stock.price}<br />
-      PE: {stock.pe}<br />
+    <div className="stocks__item">
+      <div><strong>{stock.longName}</strong> {stock.symbol}</div>
+      <div>PE: {Math.round(stock.pe)}</div>
+      <div>Price: {stock.currencySymbol}{stock.price}</div>
+      <div>Amount: {portfolio.amount}</div>
+      <div>Value: {stock.price * portfolio.amount}</div>
     </div>
   );
 };

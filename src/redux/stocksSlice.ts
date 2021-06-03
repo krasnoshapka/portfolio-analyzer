@@ -1,14 +1,17 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import Stock from "../models/stocks";
+import Stock, {PortfolioItem} from "../models/stocks";
 
 interface StocksState {
   stocks: Stock[];
-  portfolio: string[]
+  portfolio: PortfolioItem[]
 }
 
 const initialState: StocksState = {
   stocks: [],
-  portfolio: ['tsla', 'aapl']
+  portfolio: [
+    {symbol: 'AAPL', amount: 10},
+    {symbol: 'TSLA', amount: 2}
+  ]
 }
 
 export const stocksSlice = createSlice({

@@ -5,3 +5,8 @@ export default interface Stock {
   price: number;
   pe: number;
 }
+
+export interface PortfolioItem {
+  symbol: string;
+  amount: number;
+}
