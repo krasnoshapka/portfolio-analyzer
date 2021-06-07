@@ -1,17 +1,9 @@
-import React, {useEffect} from "react";
-import { useAppSelector, useAppDispatch } from '../redux/store';
+import React from "react";
+import { useAppSelector } from '../redux/store';
 import StockItem from "./StockItem";
-import {PortfolioItem} from "../models/stocks";
 
 const Stocks = () => {
   const {stocks, portfolio} = useAppSelector((state) => state.stocks);
-  const dispatch = useAppDispatch();
-  
-  useEffect( () => {
-    portfolio.forEach((item: PortfolioItem) => {
-      dispatch({type: 'getStockData', payload: item.symbol});
-    });
-  }, [portfolio]);
   
   return (
     <div className="stocks">

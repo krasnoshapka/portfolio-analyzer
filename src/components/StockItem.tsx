@@ -14,7 +14,7 @@ const StockItem = ({stock, portfolio}: StockProps) => {
       <div>PE: {Math.round(stock.pe)}</div>
       <div>Price: {stock.currencySymbol}{stock.price}</div>
       <div>Amount: {portfolio.amount}</div>
-      <div>Value: {stock.price * portfolio.amount}</div>
+      <div>Value: {stock.currencySymbol}{stock.price * portfolio.amount}</div>
     </div>
   );
 };

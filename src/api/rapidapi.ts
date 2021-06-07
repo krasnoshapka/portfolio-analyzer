@@ -1,3 +1,5 @@
+import Stock from "../models/stocks";
+
 const API_URL = "https://apidojo-yahoo-finance-v1.p.rapidapi.com";
 const API_KEY = "3cd73c018bmsh0de2957b5737971p15a074jsn690f2d899f47";
 const API_HOST = "apidojo-yahoo-finance-v1.p.rapidapi.com";
@@ -34,4 +36,10 @@ async function getStockStatistics(symbol: string): Promise<Object> {
   };
 }
 
-export default {getStockSummary, getStockStatistics};
+async function getStockData(symbol: string): Promise<Stock> {
+  const summary = await getStockSummary(symbol);
+  const statistics = await getStockStatistics(symbol);
+  return {...summary, ...statistics} as Stock;
+}
+
+export default {getStockSummary, getStockStatistics, getStockData};
